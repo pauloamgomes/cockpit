@@ -83,7 +83,7 @@ $this->module('cockpit')->extend([
 
             $opts = ['mimetype' => $asset['mime']];
 
-            $asset_meta = isset($meta[$idx]) && is_array($meta[$idx]) ? $meta[$idx] : $meta;
+            $asset_meta = $meta[$idx] ?? $meta;
 
             $this->app->trigger('cockpit.asset.upload', [&$asset, &$meta, &$opts]);
             if (!$asset) {
